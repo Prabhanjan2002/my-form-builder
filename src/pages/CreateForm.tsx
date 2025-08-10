@@ -2,11 +2,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../app/store";
-import {
-  addField,
-  setFormSchema,
-  resetFormBuilder,
-} from "../features/formBuilderSlice";
+import { addField, resetFormBuilder } from "../features/formBuilderSlice";
 import type { FormSchema, FieldType } from "../types/formTypes";
 import { createNewFormField } from "../types/formTypes";
 import { v4 as uuidv4 } from "uuid";

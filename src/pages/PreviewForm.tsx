@@ -1,7 +1,6 @@
-// src/pages/PreviewForm.tsx
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import type { RootState } from "../app/store";
 import type { FormSchema } from "../types/formTypes";
 import { Container, Typography, Box, Button } from "@mui/material";
@@ -9,14 +8,13 @@ import DynamicField from "../components/DynamicField"; // You'll create this
 
 const PreviewForm = () => {
   const { formId } = useParams();
-  const dispatch = useDispatch();
   const currentForm = useSelector(
     (state: RootState) => state.formBuilder.currentForm
   );
 
   const [formSchema, setFormSchema] = useState<FormSchema | null>(null);
   const [formValues, setFormValues] = useState<{ [key: string]: any }>({});
-  const [formErrors, setFormErrors] = useState<{ [key: string]: string }>({});
+  const [formErrors] = useState<{ [key: string]: string }>({});
 
   useEffect(() => {
     if (formId) {
